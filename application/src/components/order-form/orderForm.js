@@ -20,7 +20,8 @@ class OrderForm extends Component {
     }
 
     menuItemChosen(event) {
-        this.setState({ item: event.target.value });
+        // Corrected "order_item" from "order" as it's referenced in the rest of the script
+        this.setState({ order_item: event.target.value });
     }
 
     menuQuantityChosen(event) {
