@@ -16,6 +16,8 @@ class LoginForm extends Component {
 
   login(e) {
     e.preventDefault();
+    // Added line to require the test email to be entered, otherwise an alert will pop up
+    if (this.state.email === "") return alert("Please enter your email");
     this.props.commenceLogin(this.state.email, this.state.password);
     this.props.onLogin();
   }
@@ -29,14 +31,14 @@ class LoginForm extends Component {
       <form>
         <div className="form-group">
           <label htmlFor="inputEmail">Email</label>
-          <input type="text" className="form-control"  placeholder="test@test.com" value={this.state.email} onChange={e => this.onChange('email', e.target.value)}></input>
+          <input type="text" className="form-control"  placeholder="test@test.com" value={this.state.email} onChange={e => this.onChange('email', e.target.value)} ></input>
         </div>
         <div className="form-group">
           <label htmlFor="inputPassword">Password</label>
           <input type="password" className="form-control" id="inputPassword" value={this.state.password} onChange={e => this.onChange('password', e.target.value)}></input>
         </div>
         <div className="d-flex justify-content-center">
-            <button onClick={e => this.login(e)} type="submit" className="btn btn-primary">Login</button>
+            <button onClick={(e) => this.login(e)} type="submit" className="btn btn-primary">Login</button>
         </div>
       </form>
     );
