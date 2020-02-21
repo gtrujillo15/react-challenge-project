@@ -30,8 +30,6 @@ class ViewOrders extends Component {
     //     if (orderIndex.onClick(e) ) ? orderArray.splice() this.setState(*new state*) || return "Please click on an item to delete"
     // }
 
-    // For deleting, I could use splice
-
     render() {
         return (
             <Template>
