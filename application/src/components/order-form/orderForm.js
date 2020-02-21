@@ -20,7 +20,8 @@ class OrderForm extends Component {
     }
 
     menuItemChosen(event) {
-        this.setState({ item: event.target.value });
+        // Corrected "order_item" from "order" as it's referenced in the rest of the script
+        this.setState({ order_item: event.target.value });
     }
 
     menuQuantityChosen(event) {
@@ -28,6 +29,7 @@ class OrderForm extends Component {
     }
 
     submitOrder(event) {
+        // There is an issue occurring somewhere here between the database and this fetch request. When I click on the "Order It" button, an issue arises that it failed to fetch. I tried testing the API using Postman and received the same error. I believe the app is having issues connecting to the database. Referenced index.js file in the server folder.
         event.preventDefault();
         if (this.state.order_item === "") return;
         fetch(ADD_ORDER_URL, {
