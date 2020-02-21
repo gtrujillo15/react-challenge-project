@@ -4,6 +4,7 @@ import { SERVER_IP } from '../../private';
 import './viewOrders.css';
 
 class ViewOrders extends Component {
+    // May need to be a constructor here to initialize the state
     state = {
         orders: []
     }
@@ -19,6 +20,15 @@ class ViewOrders extends Component {
                 }
             });
     }
+
+    // I think there needs to be a method here to include editing and deleting. For deleting, I would incorporate slice such as this.state.orders.splice();
+    // For example
+
+    // removeOrder(e) {
+    //     let orderArray = [this.state.orders];
+    //     let orderIndex = orderArray.indexOf(e.target.value);
+    //     if (orderIndex.onClick(e) ) ? orderArray.splice() this.setState(*new state*) || return "Please click on an item to delete"
+    // }
 
     render() {
         return (
@@ -37,6 +47,7 @@ class ViewOrders extends Component {
                                     <p>Quantity: {order.quantity}</p>
                                  </div>
                                  <div className="col-md-4 view-order-right-col">
+                                     {/* Buttons would be referencing method removeOrder(e)*/}
                                      <button className="btn btn-success">Edit</button>
                                      <button className="btn btn-danger">Delete</button>
                                  </div>
